@@ -106,6 +106,8 @@ Proves i exercicis a fer i entregar
 1. Reprodueix l'exemple fent servir diferents freqüències per la sinusoide. Al menys considera $f_x = 4$ kHz, a banda d'una
     freqüència pròpia en el marge audible. Comenta els resultats.
 
+Hem utilitzat tres freqüències, la primera és 800Hz, la segona 4kHz i la tercera 7kHz.
+
 
 
 
@@ -114,6 +116,13 @@ Proves i exercicis a fer i entregar
     (`x_r, fm = sf.read('nom_fitxer.wav')`).
 
     - Insereix a continuació una gràfica que mostri 5 períodes del senyal i la seva transformada.
+
+La gràfica dels 5 períodes és:
+<img src="img/figure_0.png" width="480" align="center">
+
+La gràfica de la transformada:
+<img src="img/figure_1.png" width="480" align="center">
+
 
     - Explica el resultat del apartat anterior.
 
@@ -131,10 +140,6 @@ Proves i exercicis a fer i entregar
       Comprova-ho amb el senyal generat.
 
 
-
-
-
-
 > NOTES:
 >
 > - Per representar en dB has de fer servir la fórmula següent:
@@ -144,6 +149,10 @@ Proves i exercicis a fer i entregar
 > - La relació entre els valors de l'índex k i la freqüència en Hz és:
 >
 > $f_k = \frac{k}{N} f_m$
+
+
+
+
 
 4. Tria un fitxer d'àudio en format wav i mono (el pots aconseguir si en tens amb altres formats amb el programa Audacity). 
     Llegeix el fitxer d'àudio i comprova:
