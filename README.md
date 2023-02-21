@@ -118,10 +118,10 @@ Hem utilitzat tres freqüències, la primera és 800Hz, la segona 4kHz i la terc
     - Insereix a continuació una gràfica que mostri 5 períodes del senyal i la seva transformada.
 
 La gràfica dels 5 períodes és:
-<img src="img/figure_0.png" width="480" align="center">
+<img src="img/Figure_0.png" width="480" align="center">
 
 La gràfica de la transformada:
-<img src="img/figure_1.png" width="480" align="center">
+<img src="img/Figure_1.png" width="480" align="center">
 
 
     - Explica el resultat del apartat anterior.
