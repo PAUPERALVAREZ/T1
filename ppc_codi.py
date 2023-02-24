@@ -134,14 +134,14 @@ kk = k/N * fm
 
 plt.figure(5)                         # Nova figura
 plt.subplot(211)                      # Espai per representar el mòdul
-plt.plot(kk/2,abs(X_dB))                    # Representació del mòdul de la transformada
+plt.plot(kk/2,abs(X_dB))                  # Representació del mòdul de la transformada
 plt.title(f'Transformada del senyal de Ls={Ls} mostres amb DFT de N={N}')   # Etiqueta del títol
-plt.ylabel('|X[k]| en dB')                  # Etiqueta de mòdul
-plt.subplot(212)                      # Espai per representar la fase
-plt.plot(kk/2,np.unwrap(np.angle(X_dB)))    # Representació de la fase de la transformad, desenroscada
-plt.xlabel('Index k')                 # Etiqueta de l'eix d'abscisses 
-plt.ylabel('$\phi_x[k]$')             # Etiqueta de la fase en Latex
-plt.show()                            # Per mostrar els grafics
+plt.ylabel('|X[k]| en dB')                # Etiqueta de mòdul
+plt.subplot(212)                          # Espai per representar la fase
+plt.plot(kk/2),np.unwrap(np.angle(X_dB))  # Representació de la fase de la transformad, desenroscada
+plt.xlabel('Index k')                     # Etiqueta de l'eix d'abscisses 
+plt.ylabel('$\phi_x[k]$')                 # Etiqueta de la fase en Latex
+plt.show()                                # Per mostrar els grafics
 
 
 #_________________________________________________________________________________________________________________________________________________ 
