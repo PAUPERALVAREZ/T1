@@ -103,36 +103,74 @@ plt.show()                            # Per mostrar els grafics
 Proves i exercicis a fer i entregar
 -----------------------------------
 
-1. Reprodueix l'exemple fent servir diferents freqüències per la sinusoide. Al menys considera $f_x = 4$ kHz, a banda d'una
-    freqüència pròpia en el marge audible. Comenta els resultats.
+**1. Reprodueix l'exemple fent servir diferents freqüències per la sinusoide. Al menys considera $f_x = 4$ kHz, a banda d'una
+    freqüència pròpia en el marge audible. Comenta els resultats.**
 
-Hem utilitzat tres freqüències, la primera és 800Hz, la segona 4kHz i la tercera 7kHz.
-
-
-
-
-
-2. Modifica el programa per considerar com a senyal a analitzar el senyal del fitxer wav que has creat 
-    (`x_r, fm = sf.read('nom_fitxer.wav')`).
-
-    - Insereix a continuació una gràfica que mostri 5 períodes del senyal i la seva transformada.
-
-La gràfica dels 5 períodes és:
+La primera freqüència que s'ha fet servir per la sinusoide és de 800Hz. La representació de 5 períodes és la següent:
 <img src="img/Figure_0.png" width="480" align="center">
 
+La representació del mòdul i de la fase de la seva transformada de Fourier és:
+<img src="img/Figure_1.png" width="480" align="center"> 
+
+Podem escoltar ('so_exemple1.wav') que és un to greu.
+
+La segona freqüència que s'ha fet servir per la sinusoide és de 4Khz. La representació de 5 períodes és la següent:
+<img src="img/Figure_2.png" width="480" align="center">
+
+La representació del mòdul i de la fase de la seva transformada de Fourier és:
+<img src="img/Figure_3.png" width="480" align="center"> 
+
+Podem escoltar ('so_exemple2.wav') que és un to molt més agut que l'anterior.
+<p>
+Si comparem les dues gràfiques veiem que per la sinusoide de 800Hz, els 5 periodes tenen una durada de uns 6ms aproximadament, mentre que per la sinusoide de 4kHz, al ser una freqüència més gran, els 5 períodes tarden casi 12ms. 
+Pel cas de les transformades de fourier podem veure que per la primera sinusoide tenim 50 mostres mentre que per la de 4kHz tenim només 10 mostres.
+
+</p>
+
+
+
+
+**2. Modifica el programa per considerar com a senyal a analitzar el senyal del fitxer wav que has creat 
+    (`x_r, fm = sf.read('nom_fitxer.wav')`).**
+
+Per tal de trobar la freqüència del sinus fem el següent:
+
+x_r, fm = sf.read('so_exemple2.wav')      #Agafem el fitxer creat abans de freq = 4kHz
+
+```python
+#Per trobar fx:
+plt.figure(4)
+plt.xlabel('Hz')
+ms = plt.magnitude_spectrum(x_r, fm) 
+fx = ms[1][np.argmax(ms[0])] 
+print(f'La freqüència fonamental del senyal: {fx} Hz')
+plt.show()
+```
+
+Gràcies a aquest tros de codi aconseguim una gràfica on veiem la freqüencia del senyal com un pic (energia màxima). En aquest cas veiem que la freqüència està a 4kHz, ja que és la segona senyal del cas anterior:
+
+<img src="img/Figure_4.png" width="480" align="center"> 
+
+   - Insereix a continuació una gràfica que mostri 5 períodes del senyal i la seva transformada.
+
+La gràfica dels 5 períodes és:
+<img src="img/Figure_5.png" width="480" align="center">
+
 La gràfica de la transformada:
-<img src="img/Figure_1.png" width="480" align="center">
+<img src="img/Figure_6.png" width="480" align="center">
 
 
     - Explica el resultat del apartat anterior.
 
+Veiem que, al utilitzar la mateixa freqüència que el cas anterior (fk = 4kHz), les gràfiques són les mateixes. 
 
 
 
 
 
-3. Modifica el programa per representar el mòdul de la Transformada de Fourier en dB i l'eix d'abscisses en el marge de
-    $0$ a $f_m/2$ en Hz.
+
+**3.Modifica el programa per representar el mòdul de la Transformada de Fourier en dB i l'eix d'abscisses en el marge de
+    $0$ a $f_m/2$ en Hz.**
 
     - Comprova que la mesura de freqüència es correspon amb la freqüència de la sinusoide que has fet servir.
 
@@ -150,11 +188,29 @@ La gràfica de la transformada:
 >
 > $f_k = \frac{k}{N} f_m$
 
+<p>
+Utilitzant el mateix codi que per el apartat anterior comprovem que la freqüència és la corresponent:
+<img src="img/Figure_7.png" width="480" align="center"> 
+
+En aquest cas veiem que és de 800Hz (freqüència amb l'amplitud més gran), i també que apareixen ressonàncies a 3x800Hz = 2400Hz i a 5x800 = 4kHz. 
+</p>
+
+La transformada en dB és la següent:
+<img src="img/Figure_8.png" width="480" align="center"> 
+
+<p>
+Per trobar l'amplitud fem el procés invers:
+
+```python
+A = 10**int(max(X_dB)/20)
+print(f'Amplitud del senyal: {A}')
+```
+
+En el nostre cas podem veure que com l'amplitud màxima en dB és 0, al fer (10^0/20), ens dona 1.
+</p>
 
 
-
-
-4. Tria un fitxer d'àudio en format wav i mono (el pots aconseguir si en tens amb altres formats amb el programa Audacity). 
+**4. Tria un fitxer d'àudio en format wav i mono (el pots aconseguir si en tens amb altres formats amb el programa Audacity).**
     Llegeix el fitxer d'àudio i comprova:
 
     - Freqüència de mostratge.
@@ -162,6 +218,18 @@ La gràfica de la transformada:
     - Tria un segment de senyal de 25ms i insereix una gráfica amb la seva evolució temporal.
     - Representa la seva transformada en dB en funció de la freqüència, en el marge $f_m\le f\le f_m/2$.
     - Quines son les freqüències més importants del segment triat?
+Primerament, de la cançó en mostres la seva freqüència de mostratge (44,1kHz) i el seu nombre de mostres (7104512) per terminal.
+
+Un cop vist, he seleccionat un tros de cançó on hi hagi senyal durant els 25ms:
+<img src="img/Figure_9.png" width="480" align="center"> 
+
+i també la seva transformada de Fourier en dB:
+<img src="img/Figure_10.png" width="480" align="center"> 
+
+freq mes importants?
+arreglar dB
+
+
 
 
 Entrega
