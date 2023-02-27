@@ -226,6 +226,8 @@ Un cop vist, he seleccionat un tros de cançó on hi hagi senyal durant els 25ms
 i també la seva transformada de Fourier en dB:
 <img src="img/Figure_10.png" width="480" align="center"> 
 
+
+Falta:
 freq mes importants?
 arreglar dB
 
