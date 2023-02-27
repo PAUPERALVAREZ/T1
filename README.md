@@ -221,7 +221,7 @@ En el nostre cas podem veure que com l'amplitud màxima en dB és 0, al fer (10^
 Primerament, de la cançó en mostres la seva freqüència de mostratge (44,1kHz) i el seu nombre de mostres (7104512) per terminal.
 
 Un cop vist, he seleccionat un tros de cançó on hi hagi senyal durant els 25ms:
-<img src="img/Figure_9.png" width="480" align="center"> 
+<img src="img/Figure_9.png" width="480" align="center">
 
 i també la seva transformada de Fourier en dB:
 <img src="img/Figure_10.png" width="480" align="center"> 
