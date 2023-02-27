@@ -193,7 +193,7 @@ Tm = 1/fm
 t = Tm*np.arange(L1, L2)
 
 plt.figure(9)
-plt.title('5ms de la cançó') 
+plt.title('25ms de la cançó') 
 plt.plot(t, xx[L1:L2])
 plt.show()
 
