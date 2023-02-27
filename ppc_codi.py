@@ -147,7 +147,7 @@ T= 2.5                               # Durada de T segons
 L = int(fm * T)                      # Nombre de mostres del senyal digital
 Tm=1/fm                              # Període de mostratge
 t=Tm*np.arange(L)                    # Vector amb els valors de la variable temporal, de 0 a T
-x = A * np.cos(2 * pi * fx * t)      # Senyal sinusoidal
+Tx = 1 / fx
 Ls=int(fm*5*Tx)
 
 N = fm
@@ -161,7 +161,7 @@ k = np.arange(N)
 kk = k/N * fm
 
 plt.figure(8)                         # Nova figura
-plt.plot(kk[0:int(fm/2)],X_dB[0:int(fm/2)])                  # Representació del mòdul de la transformada
+plt.plot(kk/2,X_dB)                  # Representació del mòdul de la transformada
 plt.title(f'Transformada del senyal de Ls={Ls} mostres amb DFT de N={N}')   # Etiqueta del títol
 plt.ylabel('|X[k]| en dB')                # Etiqueta de mòdul
 plt.show()
