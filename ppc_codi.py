@@ -131,7 +131,7 @@ plt.show()                            # Per mostrar els grafics
 #_________________________________________________________________________________________________________________________________________________ 
 
 ##EXERCICI 3
-#Agafem les dades de l'apartat anterior, és a dir, de 'so_exemple1.wav': fx = 800Hz 
+#Agafem les dades de l'apartat 1, és a dir, de 'so_exemple1.wav': fx = 800Hz 
 
 x, fm = sf.read('so_exemple1.wav')
 
@@ -149,6 +149,7 @@ Tm=1/fm                              # Període de mostratge
 t=Tm*np.arange(L)                    # Vector amb els valors de la variable temporal, de 0 a T
 Tx = 1 / fx
 Ls=int(fm*5*Tx)
+#Ls = 2*Ls #Afegim mé mostres per veure més clara la transformada
 
 N = fm
 X=fft(x[0 : Ls], N)         # Càlcul de la transformada de 5 períodes de la sinusoide
@@ -161,7 +162,7 @@ k = np.arange(N)
 kk = k/N * fm
 
 plt.figure(8)                         # Nova figura
-plt.plot(kk/2,X_dB)                  # Representació del mòdul de la transformada
+plt.plot(kk/2 , X_dB)                  # Representació del mòdul de la transformada
 plt.title(f'Transformada del senyal de Ls={Ls} mostres amb DFT de N={N}')   # Etiqueta del títol
 plt.ylabel('|X[k]| en dB')                # Etiqueta de mòdul
 plt.show()
@@ -204,11 +205,11 @@ XX_dB = 20*np.log10(np.abs(XX)/(max(np.abs(XX))))
 
 plt.figure(10)                         # Nova figura
 plt.subplot(211)                      # Espai per representar el mòdul
-plt.plot(kkk/2,XX_dB)                    # Representació del mòdul de la transformada
+plt.plot(kkk/2, XX_dB)                    # Representació del mòdul de la transformada
 plt.title(f'Transformada del senyal de Ls={L2-L1} mostres amb DFT de N={N}')   # Etiqueta del títol
 plt.ylabel('|X[k]| en dB')                  # Etiqueta de mòdul
 plt.subplot(212)                      # Espai per representar la fase
-plt.plot(kkk/2,np.unwrap(np.angle(XX_dB)))    # Representació de la fase de la transformad, desenroscada
+plt.plot(kkk/2, np.unwrap(np.angle(XX_dB)))    # Representació de la fase de la transformad, desenroscada
 plt.xlabel('Index k')                 # Etiqueta de l'eix d'abscisses 
 plt.ylabel('$\phi_x[k]$')             # Etiqueta de la fase en Latex
 plt.show()                            # Per mostrar els grafics

@@ -227,9 +227,9 @@ i també la seva transformada de Fourier en dB:
 <img src="img/Figure_10.png" width="480" align="center"> 
 
 
-Falta:
-freq mes importants?
-arreglar dB
+- Podem veure que les freqüències més importants són les altes i les baixes, mentre que les mitjes no tenen tan de pes.
+
+
 
 
 
