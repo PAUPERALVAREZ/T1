@@ -149,7 +149,7 @@ Tm=1/fm                              # Període de mostratge
 t=Tm*np.arange(L)                    # Vector amb els valors de la variable temporal, de 0 a T
 Tx = 1 / fx
 Ls=int(fm*5*Tx)
-#Ls = 2*Ls #Afegim mé mostres per veure més clara la transformada
+
 
 N = fm
 X=fft(x[0 : Ls], N)         # Càlcul de la transformada de 5 períodes de la sinusoide
@@ -159,10 +159,10 @@ X_dB = 20*(np.log10(np.abs(X)/(max(np.abs(X)))))
 
 #Càlcul de fk:
 k = np.arange(N)
-kk = k/N * fm
+kk = (k/N) * fm
 
 plt.figure(8)                         # Nova figura
-plt.plot(kk/2 , X_dB)                  # Representació del mòdul de la transformada
+plt.plot(kk[0:int(fm/2)] , X_dB[0:int(fm/2)])                  # Representació del mòdul de la transformada
 plt.title(f'Transformada del senyal de Ls={Ls} mostres amb DFT de N={N}')   # Etiqueta del títol
 plt.ylabel('|X[k]| en dB')                # Etiqueta de mòdul
 plt.show()
@@ -205,7 +205,7 @@ XX_dB = 20*np.log10(np.abs(XX)/(max(np.abs(XX))))
 
 plt.figure(10)                         # Nova figura
 plt.subplot(211)                      # Espai per representar el mòdul
-plt.plot(kkk/2, XX_dB)                    # Representació del mòdul de la transformada
+plt.plot(kkk[0:int(fm/2)] , XX_dB[0:int(fm/2)])                  # Representació del mòdul de la transformada
 plt.title(f'Transformada del senyal de Ls={L2-L1} mostres amb DFT de N={N}')   # Etiqueta del títol
 plt.ylabel('|X[k]| en dB')                  # Etiqueta de mòdul
 plt.subplot(212)                      # Espai per representar la fase
